@@ -1,0 +1,27 @@
+{
+    "name": "bangladoc-backend",
+    "version": "1.0.0",
+    "description": "BanglaDoc AI Backend",
+    "main": "src/server.js",
+    "scripts": {
+        "dev": "nodemon src/server.js",
+        "start": "node src/server.js"
+    },
+    "dependencies": {
+        "axios": "^1.13.6",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.6",
+        "docx": "^9.6.1",
+        "dotenv": "^16.6.1",
+        "express": "^4.22.1",
+        "jsonwebtoken": "^9.0.3",
+        "multer": "^1.4.5-lts.1",
+        "openai": "^6.32.0",
+        "pg": "^8.12.0",
+        "puppeteer": "^24.39.1",
+        "tesseract.js": "^7.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.7"
+    }
+}
