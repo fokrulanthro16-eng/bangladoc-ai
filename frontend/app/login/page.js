@@ -9,7 +9,9 @@ export default function LoginPage() {
 
     const handleLogin = async () => {
         try {
-            const res = await fetch("http://localhost:5001/api/auth/login", {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+            const res = await fetch(`${apiUrl}/api/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -22,8 +24,6 @@ export default function LoginPage() {
 
             const data = await res.json();
 
-            console.log("LOGIN RESPONSE:", data);
-
             if (res.ok) {
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user", JSON.stringify(data.user));
@@ -34,7 +34,7 @@ export default function LoginPage() {
             }
         } catch (err) {
             console.error("LOGIN ERROR:", err);
-            alert("Server error");
+            alert("Error connecting server");
         }
     };
 
@@ -45,8 +45,7 @@ export default function LoginPage() {
                     <div style={styles.brand}>BanglaDoc AI</div>
                     <h1 style={styles.leftTitle}>Welcome Back</h1>
                     <p style={styles.leftText}>
-                        Smart Bangla drafting, OCR, export and document workflow in one
-                        place.
+                        Smart Bangla drafting, OCR, export and document workflow in one place.
                     </p>
                 </div>
 
